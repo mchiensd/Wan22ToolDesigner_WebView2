@@ -118,7 +118,7 @@ namespace Wan22ToolDesigner_WebView2
         {
             if (grid.Columns[e.ColumnIndex].Name == "status" && e.Value != null)
             {
-                string status = e.Value == null ? "": e.Value.ToString()!.ToLower();
+                string status = e.Value == null ? "" : e.Value.ToString()!.ToLower();
                 var cell = grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
                 cell.Style.Font = new Font(grid.Font, FontStyle.Bold);
@@ -740,5 +740,21 @@ namespace Wan22ToolDesigner_WebView2
 
         private void button5_Click(object sender, EventArgs e)
         => Process.Start(new ProcessStartInfo(_config.DownloadPathBill!) { UseShellExecute = true });
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(btnDisplayAPIkey.Text != "Ẩn")
+            {
+                btnDisplayAPIkey.Text = "Ẩn";
+                txtApiKey.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                btnDisplayAPIkey.Text = "Hiện";
+                txtApiKey.UseSystemPasswordChar = true;
+            }
+           
+
+        }
     }
 }

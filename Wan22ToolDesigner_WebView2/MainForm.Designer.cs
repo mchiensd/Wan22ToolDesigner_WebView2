@@ -64,6 +64,7 @@ namespace Wan22ToolDesigner_WebView2
             lblTotal = new Label();
             grid = new DataGridView();
             tabSettings = new TabPage();
+            btnDisplayAPIkey = new Button();
             button3 = new Button();
             button1 = new Button();
             label2 = new Label();
@@ -155,7 +156,7 @@ namespace Wan22ToolDesigner_WebView2
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1003, 27);
+            label1.Location = new Point(1003, 26);
             label1.Name = "label1";
             label1.Size = new Size(96, 15);
             label1.TabIndex = 6;
@@ -166,7 +167,7 @@ namespace Wan22ToolDesigner_WebView2
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBalance.Location = new Point(1003, 6);
+            lblBalance.Location = new Point(1003, 11);
             lblBalance.Name = "lblBalance";
             lblBalance.Size = new Size(55, 15);
             lblBalance.TabIndex = 0;
@@ -630,6 +631,7 @@ namespace Wan22ToolDesigner_WebView2
             // 
             // tabSettings
             // 
+            tabSettings.Controls.Add(btnDisplayAPIkey);
             tabSettings.Controls.Add(button3);
             tabSettings.Controls.Add(button1);
             tabSettings.Controls.Add(label2);
@@ -651,6 +653,15 @@ namespace Wan22ToolDesigner_WebView2
             tabSettings.TabIndex = 2;
             tabSettings.Text = "API Settings";
             tabSettings.UseVisualStyleBackColor = true;
+            // 
+            // btnDisplayAPIkey
+            // 
+            btnDisplayAPIkey.Location = new Point(646, 25);
+            btnDisplayAPIkey.Name = "btnDisplayAPIkey";
+            btnDisplayAPIkey.Size = new Size(56, 25);
+            btnDisplayAPIkey.TabIndex = 15;
+            btnDisplayAPIkey.Text = "Hiện";
+            btnDisplayAPIkey.Click += button6_Click;
             // 
             // button3
             // 
@@ -701,6 +712,7 @@ namespace Wan22ToolDesigner_WebView2
             txtApiKey.Name = "txtApiKey";
             txtApiKey.Size = new Size(440, 23);
             txtApiKey.TabIndex = 1;
+            txtApiKey.UseSystemPasswordChar = true;
             // 
             // lblAccountId
             // 
@@ -899,5 +911,6 @@ namespace Wan22ToolDesigner_WebView2
         private Button button3;
         private Button button4;
         private Button button5;
+        private Button btnDisplayAPIkey;
     }
 }

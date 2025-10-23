@@ -19,7 +19,7 @@ namespace Wan22ToolDesigner_WebView2.Services
                     var s0 = (string?)root ?? string.Empty;
                     if (s0.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || s0.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) urls.Add(s0);
                 }
-                foreach (var t in root.SelectTokens("$..*"))
+                foreach (var t in root!.SelectTokens("$..*"))
                 {
                     if (t.Type == JTokenType.String)
                     {
