@@ -14,6 +14,7 @@ namespace Wan22ToolDesigner_WebView2
             components = new System.ComponentModel.Container();
             tabs = new TabControl();
             tabCreate = new TabPage();
+            button4 = new Button();
             button2 = new Button();
             label1 = new Label();
             lblBalance = new Label();
@@ -51,12 +52,9 @@ namespace Wan22ToolDesigner_WebView2
             lblUploadImageStatus = new Label();
             headerPanel = new Panel();
             lblRuntitle = new Label();
-            tabHistory = new TabPage();
-            gridHistory = new DataGridView();
-            btnOpenHistoryFolder = new Button();
-            btnRefreshHistory = new Button();
             BillHistoryTab = new TabPage();
             panelTop = new Panel();
+            button5 = new Button();
             lblPageSize = new Label();
             numPageSize = new NumericUpDown();
             btnPrev = new Button();
@@ -84,7 +82,6 @@ namespace Wan22ToolDesigner_WebView2
             pollTimer = new System.Windows.Forms.Timer(components);
             elapsedTimer = new System.Windows.Forms.Timer(components);
             animTitleTimer = new System.Windows.Forms.Timer(components);
-            button4 = new Button();
             tabs.SuspendLayout();
             tabCreate.SuspendLayout();
             grpStatus.SuspendLayout();
@@ -96,8 +93,6 @@ namespace Wan22ToolDesigner_WebView2
             grpImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             headerPanel.SuspendLayout();
-            tabHistory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridHistory).BeginInit();
             BillHistoryTab.SuspendLayout();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numPageSize).BeginInit();
@@ -108,7 +103,6 @@ namespace Wan22ToolDesigner_WebView2
             // tabs
             // 
             tabs.Controls.Add(tabCreate);
-            tabs.Controls.Add(tabHistory);
             tabs.Controls.Add(BillHistoryTab);
             tabs.Controls.Add(tabSettings);
             tabs.Dock = DockStyle.Fill;
@@ -137,6 +131,17 @@ namespace Wan22ToolDesigner_WebView2
             tabCreate.TabIndex = 0;
             tabCreate.Text = "Tạo video";
             tabCreate.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.ForeColor = Color.Firebrick;
+            button4.Location = new Point(811, 8);
+            button4.Name = "button4";
+            button4.Size = new Size(140, 34);
+            button4.TabIndex = 4;
+            button4.Text = "Thoát";
+            button4.Click += button4_Click;
             // 
             // button2
             // 
@@ -219,15 +224,16 @@ namespace Wan22ToolDesigner_WebView2
             grpOutput.Size = new Size(1160, 223);
             grpOutput.TabIndex = 1;
             grpOutput.TabStop = false;
-            grpOutput.Text = "Kết quả tạo video";
+            grpOutput.Text = "Log tạo video";
             // 
             // txtGenerateResponse
             // 
             txtGenerateResponse.Location = new Point(12, 26);
             txtGenerateResponse.Multiline = true;
             txtGenerateResponse.Name = "txtGenerateResponse";
+            txtGenerateResponse.ReadOnly = true;
             txtGenerateResponse.ScrollBars = ScrollBars.Vertical;
-            txtGenerateResponse.Size = new Size(860, 140);
+            txtGenerateResponse.Size = new Size(1134, 140);
             txtGenerateResponse.TabIndex = 0;
             // 
             // lblVideoUrlTitle
@@ -244,14 +250,14 @@ namespace Wan22ToolDesigner_WebView2
             txtOutputVideoUrl.Location = new Point(15, 189);
             txtOutputVideoUrl.Name = "txtOutputVideoUrl";
             txtOutputVideoUrl.ReadOnly = true;
-            txtOutputVideoUrl.Size = new Size(555, 23);
+            txtOutputVideoUrl.Size = new Size(965, 23);
             txtOutputVideoUrl.TabIndex = 2;
             // 
             // btnDownloadAndOpen
             // 
-            btnDownloadAndOpen.Location = new Point(590, 182);
+            btnDownloadAndOpen.Location = new Point(997, 189);
             btnDownloadAndOpen.Name = "btnDownloadAndOpen";
-            btnDownloadAndOpen.Size = new Size(140, 34);
+            btnDownloadAndOpen.Size = new Size(149, 23);
             btnDownloadAndOpen.TabIndex = 3;
             btnDownloadAndOpen.Text = "Tải & Mở";
             btnDownloadAndOpen.Click += btnDownloadAndOpen_Click;
@@ -268,7 +274,7 @@ namespace Wan22ToolDesigner_WebView2
             grpPrompt.Size = new Size(1160, 140);
             grpPrompt.TabIndex = 2;
             grpPrompt.TabStop = false;
-            grpPrompt.Text = "1.c Prompt (tùy chọn)";
+            grpPrompt.Text = "Prompt (tùy chọn)";
             // 
             // txtPrompt
             // 
@@ -277,31 +283,30 @@ namespace Wan22ToolDesigner_WebView2
             txtPrompt.Name = "txtPrompt";
             txtPrompt.Size = new Size(860, 100);
             txtPrompt.TabIndex = 0;
+            txtPrompt.Text = "The girl is dancing";
             // 
             // lblSeedTitle
             // 
             lblSeedTitle.AutoSize = true;
-            lblSeedTitle.Location = new Point(728, 8);
+            lblSeedTitle.Location = new Point(884, 24);
             lblSeedTitle.Name = "lblSeedTitle";
             lblSeedTitle.Size = new Size(35, 15);
             lblSeedTitle.TabIndex = 1;
             lblSeedTitle.Text = "Seed:";
-            lblSeedTitle.Visible = false;
             // 
             // numSeed
             // 
-            numSeed.Location = new Point(774, 6);
+            numSeed.Location = new Point(930, 22);
             numSeed.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             numSeed.Minimum = new decimal(new int[] { 999999, 0, 0, int.MinValue });
             numSeed.Name = "numSeed";
-            numSeed.Size = new Size(96, 23);
+            numSeed.Size = new Size(216, 23);
             numSeed.TabIndex = 2;
             numSeed.Value = new decimal(new int[] { 1, 0, 0, int.MinValue });
-            numSeed.Visible = false;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(884, 43);
+            btnClear.Location = new Point(886, 52);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(262, 34);
             btnClear.TabIndex = 3;
@@ -310,7 +315,7 @@ namespace Wan22ToolDesigner_WebView2
             // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(884, 92);
+            btnGenerate.Location = new Point(886, 92);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(262, 34);
             btnGenerate.TabIndex = 4;
@@ -506,44 +511,6 @@ namespace Wan22ToolDesigner_WebView2
             lblRuntitle.TabIndex = 7;
             lblRuntitle.Text = "CÔNG CỤ CHẠY WAN2.2 AI-ANIMATE - MRCHEN";
             // 
-            // tabHistory
-            // 
-            tabHistory.Controls.Add(gridHistory);
-            tabHistory.Controls.Add(btnOpenHistoryFolder);
-            tabHistory.Controls.Add(btnRefreshHistory);
-            tabHistory.Location = new Point(4, 24);
-            tabHistory.Name = "tabHistory";
-            tabHistory.Size = new Size(1172, 892);
-            tabHistory.TabIndex = 1;
-            tabHistory.Text = "Lịch sử";
-            tabHistory.UseVisualStyleBackColor = true;
-            // 
-            // gridHistory
-            // 
-            gridHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gridHistory.Location = new Point(12, 54);
-            gridHistory.Name = "gridHistory";
-            gridHistory.Size = new Size(1148, 825);
-            gridHistory.TabIndex = 0;
-            // 
-            // btnOpenHistoryFolder
-            // 
-            btnOpenHistoryFolder.Location = new Point(120, 10);
-            btnOpenHistoryFolder.Name = "btnOpenHistoryFolder";
-            btnOpenHistoryFolder.Size = new Size(160, 34);
-            btnOpenHistoryFolder.TabIndex = 1;
-            btnOpenHistoryFolder.Text = "Mở thư mục lịch sử";
-            btnOpenHistoryFolder.Click += btnOpenHistoryFolder_Click;
-            // 
-            // btnRefreshHistory
-            // 
-            btnRefreshHistory.Location = new Point(12, 10);
-            btnRefreshHistory.Name = "btnRefreshHistory";
-            btnRefreshHistory.Size = new Size(100, 34);
-            btnRefreshHistory.TabIndex = 2;
-            btnRefreshHistory.Text = "Làm mới";
-            btnRefreshHistory.Click += btnRefreshHistory_Click;
-            // 
             // BillHistoryTab
             // 
             BillHistoryTab.Controls.Add(panelTop);
@@ -558,6 +525,7 @@ namespace Wan22ToolDesigner_WebView2
             // 
             // panelTop
             // 
+            panelTop.Controls.Add(button5);
             panelTop.Controls.Add(lblPageSize);
             panelTop.Controls.Add(numPageSize);
             panelTop.Controls.Add(btnPrev);
@@ -571,6 +539,16 @@ namespace Wan22ToolDesigner_WebView2
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(1166, 35);
             panelTop.TabIndex = 2;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(994, 4);
+            button5.Margin = new Padding(3, 2, 3, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(156, 25);
+            button5.TabIndex = 7;
+            button5.Text = "Mở thư mục lưu video";
+            button5.Click += button5_Click;
             // 
             // lblPageSize
             // 
@@ -648,6 +626,7 @@ namespace Wan22ToolDesigner_WebView2
             grid.Size = new Size(1166, 847);
             grid.TabIndex = 3;
             grid.CellContentClick += gridBillHistory_CellContentClickAsync;
+            grid.CellFormatting += grid_CellFormatting;
             // 
             // tabSettings
             // 
@@ -810,17 +789,6 @@ namespace Wan22ToolDesigner_WebView2
             // 
             animTitleTimer.Interval = 20;
             // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.ForeColor = Color.Crimson;
-            button4.Location = new Point(811, 8);
-            button4.Name = "button4";
-            button4.Size = new Size(140, 34);
-            button4.TabIndex = 4;
-            button4.Text = "Thoát";
-            button4.Click += button4_Click;
-            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
@@ -851,8 +819,6 @@ namespace Wan22ToolDesigner_WebView2
             ((System.ComponentModel.ISupportInitialize)picPreview).EndInit();
             headerPanel.ResumeLayout(false);
             headerPanel.PerformLayout();
-            tabHistory.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridHistory).EndInit();
             BillHistoryTab.ResumeLayout(false);
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
@@ -899,10 +865,6 @@ namespace Wan22ToolDesigner_WebView2
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ProgressBar prgStatus;
         private System.Windows.Forms.Label lblElapsed;
-        private System.Windows.Forms.TabPage tabHistory;
-        private System.Windows.Forms.Button btnRefreshHistory;
-        private System.Windows.Forms.Button btnOpenHistoryFolder;
-        private System.Windows.Forms.DataGridView gridHistory;
         private System.Windows.Forms.TabPage tabSettings;
         private System.Windows.Forms.Label lblApiKey;
         private System.Windows.Forms.TextBox txtApiKey;
@@ -936,5 +898,6 @@ namespace Wan22ToolDesigner_WebView2
         private Button button2;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }

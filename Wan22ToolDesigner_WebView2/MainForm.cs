@@ -15,7 +15,6 @@ namespace Wan22ToolDesigner_WebView2
 {
     public partial class MainForm : Form
     {
-        private readonly HistoryService _history = new();
         private readonly HttpService _http = new(TimeSpan.FromMinutes(30));
         private readonly ConfigService _configService = new();
         private AppConfig _config = new();
@@ -31,7 +30,6 @@ namespace Wan22ToolDesigner_WebView2
         public MainForm()
         {
             InitializeComponent();
-            BuildHistoryColumns();
             BuildBillHistoryColumns();
         }
 
@@ -50,7 +48,6 @@ namespace Wan22ToolDesigner_WebView2
         {
             await EnsureWebView2Async();
             await RefreshBalanceAsync();
-            LoadHistory();
             _ = LoadPageAsync(1);
             //BuildMarqueeHeader();
             //animTitleTimer?.Start();
@@ -69,20 +66,6 @@ namespace Wan22ToolDesigner_WebView2
             }
         }
 
-        private void BuildHistoryColumns()
-        {
-            gridHistory.AutoGenerateColumns = false;
-            gridHistory.Columns.Clear();
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Thời gian", DataPropertyName = "Timestamp", Width = 150 });
-            gridHistory.Columns.Add(new DataGridViewButtonColumn { HeaderText = "Xem", Text = "Tải & Xem", UseColumnTextForButtonValue = true, Width = 100 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Prompt", DataPropertyName = "Prompt", Width = 250 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Seed", DataPropertyName = "Seed", Width = 60 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "URL_ID_VIDEO", DataPropertyName = "UrlIdVideo", Width = 250 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "URL_VIDEO", DataPropertyName = "UrlVideo", Width = 250 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Error", DataPropertyName = "Error", Width = 200 });
-            gridHistory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Local", DataPropertyName = "OutputLocalPath", Width = 180 });
-            gridHistory.CellContentClick += gridHistory_CellContentClick;
-        }
         public async Task LoadPageAsync(int page)
         {
             try
@@ -109,6 +92,7 @@ namespace Wan22ToolDesigner_WebView2
                 }).ToList();
 
                 grid.DataSource = rows;
+                grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 lblPage.Text = $"Trang: {_pageNo}";
                 lblTotal.Text = $"Tổng: {_total}";
             }
@@ -128,6 +112,30 @@ namespace Wan22ToolDesigner_WebView2
             var colId = new DataGridViewTextBoxColumn { Name = "ID", HeaderText = "ID", DataPropertyName = "ID", Width = 340 };
             var colBtn = new DataGridViewButtonColumn { Name = "colAction", HeaderText = "Xử lý", Text = "Xem & tải xuống", UseColumnTextForButtonValue = true, Width = 160 };
             grid.Columns.AddRange(new DataGridViewColumn[] { colCreated, colModel, colStatus, colId, colBtn });
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        private void grid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (grid.Columns[e.ColumnIndex].Name == "status" && e.Value != null)
+            {
+                string status = e.Value == null ? "": e.Value.ToString()!.ToLower();
+                var cell = grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                cell.Style.Font = new Font(grid.Font, FontStyle.Bold);
+
+                switch (status)
+                {
+                    case "created":
+                        cell.Style.ForeColor = Color.Yellow; // vàng nhạt
+                        break;
+                    case "completed":
+                        cell.Style.ForeColor = Color.Blue; // xanh nhạt
+                        break;
+                    default:
+                        cell.Style.ForeColor = Color.Cyan; // xanh nhạt khác
+                        break;
+                }
+            }
         }
 
         private static DateTime FromUnixSeconds(long sec)
@@ -153,23 +161,6 @@ namespace Wan22ToolDesigner_WebView2
             _ = LoadPageAsync(1);
         }
 
-
-
-        private void gridHistory_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-            if (gridHistory.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
-            {
-                if (gridHistory.Rows[e.RowIndex].DataBoundItem is HistoryItem item)
-                {
-                    if (!string.IsNullOrWhiteSpace(item.UrlVideo))
-                        _ = DownloadAndOpenAsync(item.UrlVideo, item, false);
-                    else
-                        MessageBox.Show("Dòng này chưa có URL_VIDEO.");
-                }
-            }
-        }
-
         private async void gridBillHistory_CellContentClickAsync(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -177,7 +168,10 @@ namespace Wan22ToolDesigner_WebView2
 
             var rowObj = grid.Rows[e.RowIndex].DataBoundItem;
             var id = rowObj?.GetType().GetProperty("ID")?.GetValue(rowObj)?.ToString();
+            var status = rowObj?.GetType().GetProperty("Status")?.GetValue(rowObj)?.ToString();
+
             if (string.IsNullOrWhiteSpace(id)) { MessageBox.Show("Không tìm thấy ID."); return; }
+            if (string.IsNullOrWhiteSpace(status) || status.ToLower() != "completed") { MessageBox.Show("Chưa hoàn tất."); return; }
 
             try
             {
@@ -256,10 +250,6 @@ namespace Wan22ToolDesigner_WebView2
             _http.SetXAccountId(_config.AccountId);
             _http.SetCookieAccessToken(_config.AccessToken);
         }
-
-        private void btnRefreshHistory_Click(object? sender, EventArgs e) => LoadHistory();
-        private void btnOpenHistoryFolder_Click(object? sender, EventArgs e) => Process.Start(new ProcessStartInfo(_history.BaseDir) { UseShellExecute = true });
-        private void LoadHistory() => gridHistory.DataSource = _history.LoadAll();
 
         private void btnBrowseImage_Click(object? sender, EventArgs e)
         {
@@ -363,24 +353,24 @@ namespace Wan22ToolDesigner_WebView2
 
                 // Nạp HTML5 <video> tham chiếu tới safeUrl
                 var html = $@"
-<!doctype html>
-<html><head><meta charset='utf-8' />
-<style>
-  html,body{{margin:0;height:100%}}
-  video{{width:100%;height:100%;object-fit:contain;background:#000}}
-  body{{background:#000}}
-</style>
-</head>
-<body>
-  <video id='v' src='{safeUrl}' controls autoplay></video>
-  <script>
-    window.replay = function(){{
-      var v = document.getElementById('v');
-      if (!v) return;
-      v.pause(); v.currentTime = 0; v.play();
-    }};
-  </script>
-</body></html>";
+                <!doctype html>
+                <html><head><meta charset='utf-8' />
+                <style>
+                  html,body{{margin:0;height:100%}}
+                  video{{width:100%;height:100%;object-fit:contain;background:#000}}
+                  body{{background:#000}}
+                </style>
+                </head>
+                <body>
+                  <video id='v' src='{safeUrl}' controls autoplay></video>
+                  <script>
+                    window.replay = function(){{
+                      var v = document.getElementById('v');
+                      if (!v) return;
+                      v.pause(); v.currentTime = 0; v.play();
+                    }};
+                  </script>
+                </body></html>";
 
                 webView.CoreWebView2.NavigateToString(html);
             }
@@ -460,7 +450,6 @@ namespace Wan22ToolDesigner_WebView2
                         UrlIdVideo = getUrl
                     };
                     //_history.AppendIfNotDuplicate(itemStart);
-                    LoadHistory();
                     StartPolling(getUrl);
                     return;
                 }
@@ -480,8 +469,6 @@ namespace Wan22ToolDesigner_WebView2
                     OutputVideoUrl = outUrl,
                     UrlVideo = outUrl
                 };
-                _history.AppendIfNotDuplicate(itemFallback);
-                LoadHistory();
                 if (!string.IsNullOrWhiteSpace(outUrl)) await DownloadAndOpenAsync(outUrl, itemFallback);
                 else MessageBox.Show("Không tìm thấy URL video trong response.");
             }
@@ -492,8 +479,21 @@ namespace Wan22ToolDesigner_WebView2
             finally { Cursor = Cursors.Default; }
         }
 
-        private void StartPolling(string url)
+        private void isUICreateEnable(bool enable)
         {
+            btnBrowseImage.Enabled = enable;
+            btnBrowseVideo.Enabled = enable;
+            btnUploadImage.Enabled = enable;
+            btnUploadVideo.Enabled = enable;
+            btnClear.Enabled = enable;
+            btnDownloadAndOpen.Enabled = enable;
+            btnGenerate.Enabled = enable;
+        }
+
+        private async void StartPolling(string url)
+        {
+            isUICreateEnable(false);
+            await RefreshBalanceAsync();
             pollUrl = url; isPolling = true;
             processingStartAt = DateTime.Now;
             elapsedTimer.Start();
@@ -504,6 +504,7 @@ namespace Wan22ToolDesigner_WebView2
 
         private async void StopPolling()
         {
+            isUICreateEnable(true);
             pollTimer.Stop();
             isPolling = false;
             UpdateStatusUI("Idle", false);
@@ -531,7 +532,6 @@ namespace Wan22ToolDesigner_WebView2
                 {
                     StopPolling();
                     var itemErr = new HistoryItem { Timestamp = DateTime.Now, GenerateRawJson = resp, Error = "Polling lỗi: code != 200" };
-                    _history.AppendIfNotDuplicate(itemErr); LoadHistory();
                     MessageBox.Show("Polling lỗi: code != 200");
                     return;
                 }
@@ -580,7 +580,6 @@ namespace Wan22ToolDesigner_WebView2
                         OutputVideoUrl = videoUrl,
                         UrlVideo = videoUrl
                     };
-                    _history.AppendIfNotDuplicate(itemDone); LoadHistory();
 
                     if (!string.IsNullOrWhiteSpace(videoUrl)) await DownloadAndOpenAsync(videoUrl, itemDone);
                     else MessageBox.Show("Hoàn tất nhưng không tìm thấy video URL trong outputs.");
@@ -601,7 +600,6 @@ namespace Wan22ToolDesigner_WebView2
                     GenerateRawJson = resp,
                     Error = string.IsNullOrWhiteSpace(err) ? $"Trạng thái không hợp lệ: {status}" : err
                 };
-                _history.AppendIfNotDuplicate(itemErr2); LoadHistory();
                 MessageBox.Show(string.IsNullOrWhiteSpace(err) ? $"Trạng thái không hợp lệ: {status}" : $"Lỗi: {err}");
             }
             catch (Exception ex)
@@ -619,7 +617,6 @@ namespace Wan22ToolDesigner_WebView2
                     GenerateRawJson = ex.ToString(),
                     Error = "Polling exception: " + ex.Message
                 };
-                _history.AppendIfNotDuplicate(itemErr); LoadHistory();
                 MessageBox.Show("Polling lỗi: " + ex.Message);
             }
         }
@@ -651,7 +648,7 @@ namespace Wan22ToolDesigner_WebView2
                 Cursor = Cursors.WaitCursor;
                 var fileName = Path.GetFileName(new Uri(url).AbsolutePath);
                 if (string.IsNullOrWhiteSpace(Path.GetExtension(fileName))) fileName += ".mp4";
-                var dest = Path.Combine(_history.BaseDir, "downloads", $"{DateTime.Now:yyyyMMdd_HHmmss}_{fileName}");
+                var dest = Path.Combine(_config.DownloadPathBill!, $"{DateTime.Now:yyyyMMdd_HHmmss}_{fileName}");
                 ApplyHeaders();
                 await _http.DownloadToFileAsync(url, dest);
 
@@ -660,7 +657,6 @@ namespace Wan22ToolDesigner_WebView2
                     if (saveHis == true)
                     {
                         existingHistoryItem.OutputLocalPath = dest;
-                        _history.AppendIfNotDuplicate(existingHistoryItem);
                     }
                 }
 
@@ -734,12 +730,15 @@ namespace Wan22ToolDesigner_WebView2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            txtDownloadPathBill.Text = Path.Combine(_history.BaseDir, "downloads");
+            txtDownloadPathBill.Text = Path.Combine(_config.DownloadPathBill!);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        => Process.Start(new ProcessStartInfo(_config.DownloadPathBill!) { UseShellExecute = true });
     }
 }
