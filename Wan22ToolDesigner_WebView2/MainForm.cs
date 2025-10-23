@@ -168,7 +168,7 @@ namespace Wan22ToolDesigner_WebView2
 
             var rowObj = grid.Rows[e.RowIndex].DataBoundItem;
             var id = rowObj?.GetType().GetProperty("ID")?.GetValue(rowObj)?.ToString();
-            var status = rowObj?.GetType().GetProperty("Status")?.GetValue(rowObj)?.ToString();
+            var status = rowObj?.GetType().GetProperty("status")?.GetValue(rowObj)?.ToString();
 
             if (string.IsNullOrWhiteSpace(id)) { MessageBox.Show("Không tìm thấy ID."); return; }
             if (string.IsNullOrWhiteSpace(status) || status.ToLower() != "completed") { MessageBox.Show("Chưa hoàn tất."); return; }

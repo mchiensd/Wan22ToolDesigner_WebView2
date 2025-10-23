@@ -1,25 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\",
+  "WorkspaceRootPath": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\new folder\\wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\wan22tooldesigner_webview2\\services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\wan22tooldesigner_webview2\\models\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\new folder\\wan22tooldesigner_webview2\\models\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\models\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\wan22tooldesigner_webview2\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\new folder\\wan22tooldesigner_webview2\\services\\jsonutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\services\\jsonutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\new folder\\wan22tooldesigner_webview2\\services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\services\\configservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|e:\\toolaiwan\\src\\wan22tooldesigner_webview2\\new folder\\wan22tooldesigner_webview2\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4B55D9E-5B0F-4A53-9D0C-0B5C671B1234}|Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2.csproj|solutionrelative:wan22tooldesigner_webview2\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,41 +34,51 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConfigService.cs",
-              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
-              "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
-              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
-              "RelativeToolTip": "Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "JsonUtils.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Services\\JsonUtils.cs",
+              "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\Services\\JsonUtils.cs",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Services\\JsonUtils.cs",
+              "RelativeToolTip": "Wan22ToolDesigner_WebView2\\Services\\JsonUtils.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T15:47:19.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T03:01:26.538Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppConfig.cs",
-              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
-              "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
-              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
-              "RelativeToolTip": "Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ConfigService.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
+              "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
+              "RelativeToolTip": "Wan22ToolDesigner_WebView2\\Services\\ConfigService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwBEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T15:46:42.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T15:47:19.852Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AppConfig.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
+              "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
+              "RelativeToolTip": "Wan22ToolDesigner_WebView2\\Models\\AppConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T15:46:42.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.cs",
               "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\MainForm.cs",
-              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.cs [Design]",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.cs [Design]",
               "RelativeToolTip": "Wan22ToolDesigner_WebView2\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T12:33:39.498Z",
@@ -72,26 +86,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
-              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
               "RelativeToolTip": "Wan22ToolDesigner_WebView2\\MainForm.Designer.cs",
               "ViewState": "AgIAAHoCAAAAAAAAAAAQwIMCAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T12:15:43.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T12:15:43.055Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.cs",
+              "DocumentMoniker": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.cs",
               "RelativeDocumentMoniker": "Wan22ToolDesigner_WebView2\\MainForm.cs",
-              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\Wan22ToolDesigner_WebView2\\MainForm.cs",
+              "ToolTip": "E:\\ToolAIWan\\Src\\Wan22ToolDesigner_WebView2\\New folder\\Wan22ToolDesigner_WebView2\\MainForm.cs",
               "RelativeToolTip": "Wan22ToolDesigner_WebView2\\MainForm.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAgwHoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJsAAAAAAAAAAAASwKkAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T11:31:09.68Z",
               "EditorCaption": ""
